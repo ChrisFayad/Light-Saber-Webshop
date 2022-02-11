@@ -82,7 +82,33 @@ const deleteCrystal = async (req, res) => {
   }
 };
 
-const getAllOrders = async (req, res) => {};
+const getAllOrders = async (req, res) => {
+  try {
+    const orders = await OrderLightSabers.find({});
+    const response = {
+      count: orders.length,
+      order: orders.map((order) => {
+        return {
+          padawanInfo: {
+            PadawanName: order.Padawan_Name,
+            PadawanAge: order.Padawan_Age,
+          },
+          orderDetails: {
+            lightsaberName: order.Lightsaber[0].name,
+            quantity: order.Lightsaber[0].quantity,
+            totalPrice:
+              order.Lightsaber[0].price * order.Lightsaber[0].quantity,
+          },
+        };
+      }),
+    };
+    res.status(200).json({ message: response });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "app could not retrieve data from database!" });
+  }
+};
 
 module.exports = {
   getAllCrystals,
