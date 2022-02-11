@@ -8,13 +8,13 @@ const crystalSchema = mongoose.Schema({
     unique: true,
     required: true,
     trim: true,
-    index: true,
   },
   color: {
     type: String,
     unique: true,
     required: true,
     trim: true,
+    index: true,
   },
   mode: {
     type: String,
