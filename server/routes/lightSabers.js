@@ -16,7 +16,7 @@ router.get("/saber/:id", getSaber);
 
 router.post("/saber", validator(lightsaberValidationSchema), createSaber);
 
-router.post("/order/saber/:id", orderSaber);
+router.post("/order/saber/:name", orderSaber);
 
 router.get("/sabers", getAllSaber);
 

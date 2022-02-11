@@ -1,4 +1,6 @@
 const LightSabers = require("../models/lightSabers");
+const OrderLightSabers = require("../models/order");
+const generatePrice = require("../utils/priceFormula");
 
 const getSaber = async (req, res) => {
   const filterID = req.params.id;
@@ -32,7 +34,21 @@ const createSaber = async (req, res) => {
     }
   }
 };
-const orderSaber = async (req, res) => {};
+const orderSaber = async (req, res) => {
+  try {
+    const lightSaberName = req.params.name;
+    const { Padawan_Name, Padawan_Age } = req.body;
+    let orderLightSaber = new OrderLightSabers({
+      Padawan_Name,
+      Padawan_Age,
+    });
+    generatePrice(Padawan_Age, lightSaberName, orderLightSaber);
+    res.status(201).json({
+      message: "order successful",
+      lightsabername: `${lightSaberName}`,
+    });
+  } catch (error) {}
+};
 
 const getAllSaber = async (req, res) => {};
 
