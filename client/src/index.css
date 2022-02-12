@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100vh;
+  overflow: visible;
+  background-image: url("./assets/app-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 70px;
+}
+.heading {
+  cursor: pointer;
+}
+.nav-links {
+  list-style: none;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.nav-links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+.nav-links div {
+  display: flex;
+}
+.user-image {
+  width: 25%;
+  border-radius: 50%;
+}
+.nav-links div h3 {
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+.create-saber {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 40%;
+}
+.input {
+  width: 20rem;
+  padding: 0.8rem;
+  margin: 1rem;
+  background-color: black;
+  border: 2px solid #5e6915;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+input:focus {
+  border: 2px solid #756963;
+  outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+::placeholder {
+  border: none;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  width: 230px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  background-color: #848a66;
+  border: 2px solid #848a66;
+  border-radius: 50px;
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 2rem;
+  position: absolute;
+  top: 90%;
+  left: 30%;
+}
+
+.submit-btn:hover {
+  background-color: #51553e;
+  border: 2px solid #51553e;
+  color: white;
+}
+
+.error {
+  font-size: normal;
+  text-align: center;
+  color: rgb(207, 17, 17);
+}
+
+.result {
+  margin-top: -1rem;
+  color: rgb(3, 47, 3);
+  position: absolute;
+  left: 35%;
+}
