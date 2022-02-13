@@ -2,6 +2,26 @@ const LightSabers = require("../models/lightSabers");
 const OrderLightSabers = require("../models/order");
 const generatePrice = require("../utils/priceFormula");
 
+const getAllSaber = async (req, res) => {
+  try {
+    const lightSabers = await LightSabers.find({});
+    const response = {
+      count: lightSabers.length,
+      sabers: lightSabers.map((lightSaber) => {
+        return {
+          lightsaberID: lightSaber.id,
+          lightsaberName: lightSaber.name,
+        };
+      }),
+    };
+    res.status(200).json({ message: response });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "app could not retrieve data from database!" });
+  }
+};
+
 const getSaber = async (req, res) => {
   const filterID = req.params.id;
   try {
@@ -50,17 +70,15 @@ const orderSaber = async (req, res) => {
   } catch (error) {}
 };
 
-const getAllSaber = async (req, res) => {};
-
 const modifySaber = async (req, res) => {};
 
 const deleteSaber = async (req, res) => {};
 
 module.exports = {
+  getAllSaber,
   getSaber,
   createSaber,
   orderSaber,
-  getAllSaber,
   modifySaber,
   deleteSaber,
 };

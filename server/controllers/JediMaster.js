@@ -89,6 +89,7 @@ const getAllOrders = async (req, res) => {
       count: orders.length,
       order: orders.map((order) => {
         return {
+          orderID: order._id,
           padawanInfo: {
             PadawanName: order.Padawan_Name,
             PadawanAge: order.Padawan_Age,
