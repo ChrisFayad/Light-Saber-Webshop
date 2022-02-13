@@ -13,6 +13,9 @@ function JediMaster() {
         <Button variant="contained" href="/JediMaster/create-lightsaber">
           Create New Lightsaber
         </Button>
+        <Button variant="contained" href="/JediMaster/display-lightsabers">
+          Display Lightsabers
+        </Button>
         <Button variant="contained" href="/JediMaster/display-orders">
           Display Orders
         </Button>
