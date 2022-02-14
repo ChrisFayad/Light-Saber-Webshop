@@ -111,10 +111,32 @@ const getAllOrders = async (req, res) => {
   }
 };
 
+const getCrystal = async (req, res) => {
+  const crystalColor = req.params.color;
+  try {
+    const crystal = await Crystal.findOne({
+      color: crystalColor,
+    });
+    if (crystal === null) {
+      res.status(404).json({
+        message: `The Crystal with the color ${crystalColor} is not found!`,
+      });
+    }
+    const response = {
+      force: crystal.f,
+      crystalPower: crystal.cr,
+    };
+    res.status(200).json({ message: response });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getAllCrystals,
   createCrystal,
   modifyCrystal,
   deleteCrystal,
   getAllOrders,
+  getCrystal,
 };
