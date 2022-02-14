@@ -81,6 +81,7 @@ export default function FlipCard({
         setError("");
       }, 2000);
     }
+    window.location.reload(true);
   };
 
   return (
