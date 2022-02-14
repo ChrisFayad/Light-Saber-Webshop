@@ -21,8 +21,7 @@ const generatePrice = async (
     quantity: Saber_Quantity,
     price: price * Saber_Quantity,
   };
-  const newAvailable =
-    lightSaber.available - orderLightSaber.Lightsaber[0].quantity;
+  const newAvailable = lightSaber.available - Saber_Quantity;
   return newAvailable;
 };
 

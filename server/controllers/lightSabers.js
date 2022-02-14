@@ -63,7 +63,7 @@ const orderSaber = async (req, res) => {
       Padawan_Name,
       Padawan_Age,
     });
-    const newAvailable = generatePrice(
+    const newAvailable = await generatePrice(
       Padawan_Age,
       lightSaberName,
       Saber_Quantity,
@@ -72,7 +72,7 @@ const orderSaber = async (req, res) => {
     if (newAvailable >= 0) {
       await orderLightSaber.save();
       await LightSabers.updateOne(
-        { name: lightSaber.name },
+        { name: lightSaberName },
         { $set: { available: newAvailable } }
       );
       res.status(201).json({
