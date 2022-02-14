@@ -1,7 +1,12 @@
 const LightSabers = require("../models/lightSabers");
 const Crystal = require("../models/crystal");
 
-const generatePrice = async (Padawan_Age, lightSaberName, orderLightSaber) => {
+const generatePrice = async (
+  Padawan_Age,
+  lightSaberName,
+  Saber_Quantity,
+  orderLightSaber
+) => {
   let lightSaber = await LightSabers.findOne({
     name: lightSaberName,
   });
@@ -13,8 +18,8 @@ const generatePrice = async (Padawan_Age, lightSaberName, orderLightSaber) => {
   );
   orderLightSaber.Lightsaber = {
     name: lightSaber.crystal[0].name,
-    quantity: 1,
-    price: price,
+    quantity: Saber_Quantity,
+    price: price * Saber_Quantity,
   };
   await orderLightSaber.save();
   const newAvailable =
