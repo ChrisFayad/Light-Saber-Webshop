@@ -7,6 +7,7 @@ const {
   modifyCrystal,
   deleteCrystal,
   getAllOrders,
+  getCrystal,
 } = require("../controllers/JediMaster");
 
 const router = express.Router();
@@ -16,4 +17,5 @@ router.patch("/crystal", validator(crystalValidationSchema), modifyCrystal);
 router.delete("/crystal", deleteCrystal);
 
 router.get("/orders", getAllOrders);
+router.get("/crystal/:color", getCrystal);
 module.exports = router;
