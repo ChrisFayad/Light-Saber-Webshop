@@ -3,7 +3,7 @@ const Joi = require("joi");
 const lightsaberValidationSchema = Joi.object({
   id: Joi.string().required(),
   name: Joi.string().lowercase().required(),
-  available: Joi.number().integer().required(),
+  available: Joi.number().integer().min(0).required(),
   crystal: Joi.array().items(
     Joi.object({
       name: Joi.string().lowercase().required(),

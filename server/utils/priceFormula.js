@@ -17,17 +17,13 @@ const generatePrice = async (
     crystal.cr / ((crystal.f / 100) * (Padawan_Age * 10))
   );
   orderLightSaber.Lightsaber = {
-    name: lightSaber.crystal[0].name,
+    name: lightSaberName,
     quantity: Saber_Quantity,
     price: price * Saber_Quantity,
   };
-  await orderLightSaber.save();
   const newAvailable =
     lightSaber.available - orderLightSaber.Lightsaber[0].quantity;
-  await LightSabers.updateOne(
-    { name: lightSaber.name },
-    { $set: { available: newAvailable } }
-  );
+  return newAvailable;
 };
 
 module.exports = generatePrice;

@@ -63,12 +63,30 @@ const orderSaber = async (req, res) => {
       Padawan_Name,
       Padawan_Age,
     });
-    generatePrice(Padawan_Age, lightSaberName, Saber_Quantity, orderLightSaber);
-    res.status(201).json({
-      message: "order successful",
-      lightsabername: `${lightSaberName}`,
-    });
-  } catch (error) {}
+    const newAvailable = generatePrice(
+      Padawan_Age,
+      lightSaberName,
+      Saber_Quantity,
+      orderLightSaber
+    );
+    if (newAvailable >= 0) {
+      await orderLightSaber.save();
+      await LightSabers.updateOne(
+        { name: lightSaber.name },
+        { $set: { available: newAvailable } }
+      );
+      res.status(201).json({
+        message: "order successful",
+        lightsabername: `${lightSaberName}`,
+      });
+    } else {
+      res.status(400).json({
+        message: `We don't have enough stock from ${lightSaberName}. Please consider changing the quantity of the order!`,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 const modifySaber = async (req, res) => {};
