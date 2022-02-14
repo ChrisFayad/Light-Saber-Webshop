@@ -44,7 +44,7 @@ function CreateLightSaber() {
           setAlert("");
         }, 2000);
       }
-    } catch (err) {
+    } catch (error) {
       setAlert("Something Went Wrong. Please Try Again!");
     }
   };
