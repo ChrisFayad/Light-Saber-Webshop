@@ -12,6 +12,7 @@ const getAllSaber = async (req, res) => {
           lightsaberID: lightSaber.id,
           lightsaberName: lightSaber.name,
           lightsaberAvailable: lightSaber.available,
+          saberCrystal: lightSaber.crystal[0].color,
         };
       }),
     };
@@ -29,9 +30,9 @@ const getSaber = async (req, res) => {
       id: filterID,
     });
     if (lightSaber === null) {
-      res
-        .status(404)
-        .json({ msg: `The Lightsaber with the ID ${filterID} is not found!` });
+      res.status(404).json({
+        message: `The Lightsaber with the ID ${filterID} is not found!`,
+      });
     }
     res.status(200).json({ message: lightSaber });
   } catch (error) {
@@ -57,12 +58,12 @@ const createSaber = async (req, res) => {
 const orderSaber = async (req, res) => {
   try {
     const lightSaberName = req.params.name;
-    const { Padawan_Name, Padawan_Age } = req.body;
+    const { Padawan_Name, Padawan_Age, Saber_Quantity } = req.body;
     let orderLightSaber = new OrderLightSabers({
       Padawan_Name,
       Padawan_Age,
     });
-    generatePrice(Padawan_Age, lightSaberName, orderLightSaber);
+    generatePrice(Padawan_Age, lightSaberName, Saber_Quantity, orderLightSaber);
     res.status(201).json({
       message: "order successful",
       lightsabername: `${lightSaberName}`,
