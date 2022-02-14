@@ -11,6 +11,7 @@ const getAllSaber = async (req, res) => {
         return {
           lightsaberID: lightSaber.id,
           lightsaberName: lightSaber.name,
+          lightsaberAvailable: lightSaber.available,
         };
       }),
     };
@@ -21,7 +22,6 @@ const getAllSaber = async (req, res) => {
       .json({ message: "app could not retrieve data from database!" });
   }
 };
-
 const getSaber = async (req, res) => {
   const filterID = req.params.id;
   try {
