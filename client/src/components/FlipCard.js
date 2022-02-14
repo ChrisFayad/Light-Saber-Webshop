@@ -12,6 +12,7 @@ export default function FlipCard({
   const [unitPrice, setUnitPrice] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [alert, setAlert] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const calculatePrice = async (crystalColor, padawanAge) => {
@@ -55,21 +56,30 @@ export default function FlipCard({
       },
       body: json,
     };
-    try {
-      const response = await fetch(
-        `https://localhost:7000/Jedisabershop/order/saber/${name}`,
-        options
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setAlert(data.message);
+    const newAvailable = saberAvailable - quantity;
+    if (newAvailable >= 0) {
+      try {
+        const response = await fetch(
+          `https://localhost:7000/Jedisabershop/order/saber/${name}`,
+          options
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setAlert(data.message);
 
-        setTimeout(() => {
-          setAlert("");
-        }, 2000);
+          setTimeout(() => {
+            setAlert("");
+          }, 2000);
+        }
+      } catch (error) {
+        setAlert(error.message);
       }
-    } catch (error) {
-      setAlert(error.message);
+    } else {
+      setError("Sorry, we don't have enough stock!");
+
+      setTimeout(() => {
+        setError("");
+      }, 2000);
     }
   };
 
@@ -103,6 +113,7 @@ export default function FlipCard({
         </div>
       </div>
       {alert && <h4 className="place-order">{alert}</h4>}
+      {error && <h4 className="no-order">{error}</h4>}
     </>
   );
 }
