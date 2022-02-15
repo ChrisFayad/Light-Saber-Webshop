@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-export default function Sabers({ sabers, loading }) {
+export default function Sabers({ sabers }) {
   const [saber, setSaber] = useState("");
 
   const fetchSaber = async (id) => {
@@ -17,10 +17,6 @@ export default function Sabers({ sabers, loading }) {
     const data = await response.json();
     setSaber(data.message);
   };
-
-  if (loading) {
-    return <h2 className="loading">Loading ...</h2>;
-  }
   return (
     <>
       <div className="space"></div>
