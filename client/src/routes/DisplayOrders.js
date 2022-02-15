@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Orders from "./Orders";
-import Pagination from "./Pagination";
+import Orders from "../components/Orders";
+import Pagination from "../components/Pagination";
 
 function DisplayOrders() {
   const [orders, setOrders] = useState([]);

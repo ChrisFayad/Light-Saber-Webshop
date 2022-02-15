@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Sabers from "./Sabers";
-import Pagination from "./Pagination";
+import Sabers from "../components/Sabers";
+import Pagination from "../components/Pagination";
 
 export default function DisplaySabers() {
   const [sabers, setSabers] = useState([]);
@@ -21,17 +21,21 @@ export default function DisplaySabers() {
     fetchSabers();
   }, []);
 
-  // Get current orders
-  const indexOfLastOrder = currentPage * sabersPerPage;
-  const indexOfFirstOrder = indexOfLastOrder - sabersPerPage;
-  const currentSabers = sabers.slice(indexOfFirstOrder, indexOfLastOrder);
+  // Get current sabers
+  const indexOfLastSaber = currentPage * sabersPerPage;
+  const indexOfFirstSaber = indexOfLastSaber - sabersPerPage;
+  const currentSabers = sabers.slice(indexOfFirstSaber, indexOfLastSaber);
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  if (loading) {
+    return <h2 className="loading">Loading ...</h2>;
+  }
+
   return (
     <div className="orders-container">
-      <Sabers sabers={currentSabers} loading={loading} />
+      <Sabers sabers={currentSabers} />
       <Pagination
         ordersPerPage={sabersPerPage}
         totalOrders={sabers.length}

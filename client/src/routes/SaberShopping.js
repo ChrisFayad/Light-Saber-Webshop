@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import FlipCard from "./FlipCard";
+import FlipCard from "../components/FlipCard";
+import Pagination from "../components/Pagination";
 
 export default function SaberShopping() {
   const [sabers, setSabers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sabersPerPage] = useState(3);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -22,6 +25,14 @@ export default function SaberShopping() {
   const location = useLocation();
   const { padawanName, padawanAge } = location.state;
 
+  // Get current sabers
+  const indexOfLastSaber = currentPage * sabersPerPage;
+  const indexOfFirstSaber = indexOfLastSaber - sabersPerPage;
+  const currentSabers = sabers.slice(indexOfFirstSaber, indexOfLastSaber);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   if (loading) {
     return <h2 className="loading">Loading ...</h2>;
   }
@@ -31,7 +42,7 @@ export default function SaberShopping() {
         Client Name is: {padawanName} | Client Age is: {padawanAge}
       </h3>
       <div className="card-container">
-        {sabers.map((item) => {
+        {currentSabers.map((item) => {
           return (
             <FlipCard
               key={item.lightsaberID}
@@ -44,6 +55,11 @@ export default function SaberShopping() {
           );
         })}
       </div>
+      <Pagination
+        ordersPerPage={sabersPerPage}
+        totalOrders={sabers.length}
+        paginate={paginate}
+      />
     </div>
   );
 }
