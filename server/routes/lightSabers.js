@@ -4,6 +4,7 @@ const lightsaberValidationSchema = require("../validation/lightsaberValidationSc
 const {
   getSaber,
   createSaber,
+  createSabers,
   orderSaber,
   getAllSaber,
   modifySaber,
@@ -17,6 +18,8 @@ router.get("/saber", getAllSaber);
 router.get("/saber/:id", getSaber);
 
 router.post("/saber", validator(lightsaberValidationSchema), createSaber);
+
+router.post("/sabers", createSabers);
 
 router.post("/order/saber/:name", orderSaber);
 
