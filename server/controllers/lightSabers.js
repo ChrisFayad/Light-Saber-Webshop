@@ -108,7 +108,7 @@ const orderSaber = async (req, res) => {
         lightsabername: `${lightSaberName}`,
       });
     } else {
-      res.status(400).json({
+      res.status(422).json({
         message: `We don't have enough stock from ${lightSaberName}. Please consider changing the quantity of the order!`,
       });
     }
