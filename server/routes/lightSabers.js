@@ -23,7 +23,7 @@ router.post("/sabers", createSabers);
 
 router.post("/order/saber/:name", orderSaber);
 
-router.patch("/saber", validator(lightsaberValidationSchema), modifySaber);
+router.patch("/saber", modifySaber);
 
 router.delete("/saber", deleteSaber);
 

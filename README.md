@@ -350,6 +350,64 @@ Once you give the following command, you will be asked some questions answer as 
 
 </details>
 
+#### Updating an existing lightsaber
+
+<details>
+  <summary><code>PATCH</code> <code><b>/Jedisabershop/saber</b></code> <code>(update the name/available/crystal value for a particular lightsaber)</code></summary>
+
+##### Parameters
+
+> | name | type     |
+> | ---- | -------- |
+> | name | required |
+
+##### Responses
+
+> | http code | content-type       | response                                        |
+> | --------- | ------------------ | ----------------------------------------------- |
+> | `200`     | `application/json` | `The ${saberNameQuery} Saber has been updated!` |
+> | `400`     | `application/json` | `No content was provided!`                      |
+> | `422`     | `application/json` | `{ msg: error.message.split(':')[2] }`          |
+> | `500`     | `application/json` | `{ message: error.message }`                    |
+
+##### Example
+
+> ```Postman
+>  PATCH -> https://localhost:7000/Jedisabershop/saber?name=Chris Fayad
+>  Query Params: KEY -> name, VALUE -> Chris Fayad
+>  Body -> { "name": "Christina" }
+> ```
+
+</details>
+
+#### Deleting an existing lightsaber
+
+<details>
+  <summary><code>DELETE</code> <code><b>/Jedisabershop/saber</b></code> <code>(deletes a particular lightsaber)</code></summary>
+
+##### Parameters
+
+> | name | type     |
+> | ---- | -------- |
+> | name | required |
+
+##### Responses
+
+> | http code | content-type       | response                                        |
+> | --------- | ------------------ | ----------------------------------------------- |
+> | `200`     | `application/json` | `The ${saberNameQuery} Saber has been deleted!` |
+> | `404`     | `application/json` | `The ${saberNameQuery} Saber is not found!`     |
+> | `500`     | `application/json` | `{ message: error.message }`                    |
+
+##### Example
+
+> ```Postman
+>  DELETE -> https://localhost:7000/Jedisabershop/saber?name=Christina
+>  Query Params: KEY -> name, VALUE -> Christina
+> ```
+
+</details>
+
 #### Creating a new lightsabers
 
 <details>

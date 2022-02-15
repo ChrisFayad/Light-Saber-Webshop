@@ -117,9 +117,47 @@ const orderSaber = async (req, res) => {
   }
 };
 
-const modifySaber = async (req, res) => {};
+const modifySaber = async (req, res) => {
+  const saberNameQuery = req.query.name;
+  const { name, available, crystal } = req.body;
+  try {
+    const saber = await LightSabers.updateOne(
+      {
+        name: saberNameQuery,
+      },
+      { $set: { name: name, available: available, crystal: crystal } }
+    );
+    if (saber.acknowledged) {
+      res
+        .status(200)
+        .json({ message: `The ${saberNameQuery} Saber has been updated!` });
+    } else {
+      res.status(400).json({ message: "No content was provided!" });
+    }
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      res.status(422).json({ message: error.message.split(":")[2] });
+    } else {
+      res.status(500).json({ message: error.message });
+    }
+  }
+};
 
-const deleteSaber = async (req, res) => {};
+const deleteSaber = async (req, res) => {
+  const saberNameQuery = req.query.name;
+  try {
+    const saber = await LightSabers.deleteOne({ name: saberNameQuery });
+    if (saber.deletedCount !== 0) {
+      res.status(200).json(`The ${saberNameQuery} Saber has been deleted!`);
+    } else {
+      res
+        .status(404)
+        .json({ message: `The ${saberNameQuery} Saber is not found!` });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 module.exports = {
   getAllSaber,
