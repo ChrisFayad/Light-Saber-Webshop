@@ -13,7 +13,7 @@ const {
 const router = express.Router();
 router.get("/crystal", getAllCrystals);
 router.post("/crystal", validator(crystalValidationSchema), createCrystal);
-router.patch("/crystal", validator(crystalValidationSchema), modifyCrystal);
+router.patch("/crystal", modifyCrystal);
 router.delete("/crystal", deleteCrystal);
 
 router.get("/orders", getAllOrders);

@@ -1,6 +1,3 @@
-const https = require("https");
-const path = require("path");
-const fs = require("fs");
 const express = require("express");
 const xmlparser = require("express-xml-bodyparser");
 const cors = require("cors");
@@ -9,7 +6,6 @@ const lightSabersRoutes = require("./routes/lightSabers");
 const jediMasterRoutes = require("./routes/jediMaster");
 
 const app = express();
-const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(xmlparser());
@@ -23,11 +19,4 @@ app.use("/JediMaster", cors(), jediMasterRoutes);
 //   lightSabersRoutes
 // );
 
-const options = {
-  key: fs.readFileSync(path.join(__dirname, "ssl", "key.pem")),
-  cert: fs.readFileSync(path.join(__dirname, "ssl", "cert.pem")),
-};
-
-https
-  .createServer(options, app)
-  .listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+module.exports = app;

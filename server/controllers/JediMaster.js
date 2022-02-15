@@ -71,7 +71,9 @@ const deleteCrystal = async (req, res) => {
   try {
     const crystal = await Crystal.deleteOne({ name: crystalNameQuery });
     if (crystal.deletedCount !== 0) {
-      res.status(200).json(`The ${crystalNameQuery} Crystal has been deleted!`);
+      res
+        .status(200)
+        .json({ message: `The ${crystalNameQuery} Crystal has been deleted!` });
     } else {
       res
         .status(404)
@@ -118,7 +120,7 @@ const getCrystal = async (req, res) => {
       color: crystalColor,
     });
     if (crystal === null) {
-      res.status(404).json({
+      return res.status(404).json({
         message: `The Crystal with the color ${crystalColor} is not found!`,
       });
     }
