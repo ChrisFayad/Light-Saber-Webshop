@@ -4,6 +4,11 @@ export default function Orders({ orders, loading }) {
   if (loading) {
     return <h2 className="loading">Loading ...</h2>;
   }
+  if (orders.length === 0) {
+    return (
+      <h2 className="no-order">Sorry, we didn't receive any orders yet!</h2>
+    );
+  }
   return (
     <ul className="orders-list">
       {orders.map((order) => (

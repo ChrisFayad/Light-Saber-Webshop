@@ -114,7 +114,7 @@ export default function FlipCard({
         </div>
       </div>
       {alert && <h4 className="place-order">{alert}</h4>}
-      {error && <h4 className="no-order">{error}</h4>}
+      {error && <h4 className="invalid-order">{error}</h4>}
     </>
   );
 }
