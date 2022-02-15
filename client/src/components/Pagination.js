@@ -10,13 +10,9 @@ export default function Pagination({ ordersPerPage, totalOrders, paginate }) {
       <ul className="pagination">
         {pageNumbers.map((pageNumber) => (
           <li key={pageNumber} className="page-item">
-            <a
-              onClick={() => paginate(pageNumber)}
-              href="/JediMaster/display-orders/#"
-              className="page-link"
-            >
+            <h6 onClick={() => paginate(pageNumber)} className="page-link">
               {pageNumber}
-            </a>
+            </h6>
           </li>
         ))}
       </ul>
