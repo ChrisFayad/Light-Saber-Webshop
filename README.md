@@ -22,6 +22,8 @@ This project was build using React & Node.js using the following list of technol
 - [MUI](https://mui.com/)
 - [uuidv4](https://www.npmjs.com/package/uuidv4)
 - [typewriter-effect](https://www.npmjs.com/package/typewriter-effect)
+- [JEST](https://jestjs.io/)
+- [SuperTest](https://www.npmjs.com/package/supertest)
 
 ---
 
@@ -62,7 +64,7 @@ Once you give the following command, you will be asked some questions answer as 
 > |       └── Orders.js
 > |       └── Pagination.js
 > |       └── Sabers.js
-> |   └── routes
+> |   └── pages
 > |       └── CreateLightSaber.js
 > |       └── DisplayOrders.js
 > |       └── DisplaySabers.js
