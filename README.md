@@ -119,10 +119,10 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                                |
-> | --------- | ------------------ | ------------------------------------------------------- |
-> | `200`     | `application/json` | `json`                                                  |
-> | `500`     | `application/json` | `{ msg: 'app could not retrieve data from database!' }` |
+> | http code | content-type       | response                                                    |
+> | --------- | ------------------ | ----------------------------------------------------------- |
+> | `200`     | `application/json` | `json`                                                      |
+> | `500`     | `application/json` | `{ massage: 'app could not retrieve data from database!' }` |
 
 ##### Example
 
@@ -143,11 +143,11 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                         |
-> | --------- | ------------------ | ------------------------------------------------ |
-> | `201`     | `application/json` | `The ${newCrystal.name} Crystal has been added!` |
-> | `422`     | `application/json` | `{ msg: error.message.split(':')[2] }`           |
-> | `500`     | `application/json` | `{ message: error.message }`                     |
+> | http code | content-type       | response                                                      |
+> | --------- | ------------------ | ------------------------------------------------------------- |
+> | `201`     | `application/json` | `{ message: The ${newCrystal.name} Crystal has been added! }` |
+> | `422`     | `application/json` | `{ message: error.message.split(':')[2] }`                    |
+> | `500`     | `application/json` | `{ message: error.message }`                                  |
 
 ##### Example
 
@@ -172,12 +172,12 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                            |
-> | --------- | ------------------ | --------------------------------------------------- |
-> | `200`     | `application/json` | `The ${crystalNameQuery} Crystal has been updated!` |
-> | `400`     | `application/json` | `No content was provided!`                          |
-> | `422`     | `application/json` | `{ msg: error.message.split(':')[2] }`              |
-> | `500`     | `application/json` | `{ message: error.message }`                        |
+> | http code | content-type       | response                                                               |
+> | --------- | ------------------ | ---------------------------------------------------------------------- |
+> | `200`     | `application/json` | `` { message: `The ${crystalNameQuery} Crystal has been updated!` } `` |
+> | `400`     | `application/json` | `No content was provided!`                                             |
+> | `422`     | `application/json` | `{ msg: error.message.split(':')[2] }`                                 |
+> | `500`     | `application/json` | `{ message: error.message }`                                           |
 
 ##### Example
 
@@ -204,11 +204,11 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                            |
-> | --------- | ------------------ | --------------------------------------------------- |
-> | `200`     | `application/json` | `The ${crystalNameQuery} Crystal has been deleted!` |
-> | `404`     | `application/json` | `The ${crystalNameQuery} Crystal is not found!`     |
-> | `500`     | `application/json` | `{ message: error.message }`                        |
+> | http code | content-type       | response                                                               |
+> | --------- | ------------------ | ---------------------------------------------------------------------- |
+> | `200`     | `application/json` | `` { message: `The ${crystalNameQuery} Crystal has been deleted!` } `` |
+> | `404`     | `application/json` | `` { message: `The ${crystalNameQuery} Crystal is not found!` }``      |
+> | `500`     | `application/json` | `{ message: error.message }`                                           |
 
 ##### Example
 
@@ -230,10 +230,10 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                                |
-> | --------- | ------------------ | ------------------------------------------------------- |
-> | `200`     | `application/json` | `json`                                                  |
-> | `500`     | `application/json` | `{ msg: 'app could not retrieve data from database!' }` |
+> | http code | content-type       | response                     |
+> | --------- | ------------------ | ---------------------------- |
+> | `200`     | `application/json` | `json`                       |
+> | `500`     | `application/json` | `{ message: error.message }` |
 
 ##### Example
 
@@ -256,11 +256,11 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                                   |
-> | --------- | ------------------ | ---------------------------------------------------------- |
-> | `200`     | `application/json` | `json`                                                     |
-> | `404`     | `application/json` | `The Crystal with the color ${crystalColor} is not found!` |
-> | `500`     | `application/json` | `{ msg: 'app could not retrieve data from database!' }`    |
+> | http code | content-type       | response                                                                      |
+> | --------- | ------------------ | ----------------------------------------------------------------------------- |
+> | `200`     | `application/json` | `json`                                                                        |
+> | `404`     | `application/json` | `` { message: `The Crystal with the color ${crystalColor} is not found!` } `` |
+> | `500`     | `application/json` | `{ message: error.message }`                                                  |
 
 ##### Example
 
@@ -282,10 +282,10 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                                |
-> | --------- | ------------------ | ------------------------------------------------------- |
-> | `200`     | `application/json` | `json`                                                  |
-> | `500`     | `application/json` | `{ msg: 'app could not retrieve data from database!' }` |
+> | http code | content-type       | response                     |
+> | --------- | ------------------ | ---------------------------- |
+> | `200`     | `application/json` | `json`                       |
+> | `500`     | `application/json` | `{ message: error.message }` |
 
 ##### Example
 
@@ -308,11 +308,11 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                               |
-> | --------- | ------------------ | ------------------------------------------------------ |
-> | `200`     | `application/json` | `json`                                                 |
-> | `404`     | `application/json` | `The Lightsaber with the ID ${filterID} is not found!` |
-> | `500`     | `application/json` | `{ message: error.message }`                           |
+> | http code | content-type       | response                                                                  |
+> | --------- | ------------------ | ------------------------------------------------------------------------- |
+> | `200`     | `application/json` | `json`                                                                    |
+> | `404`     | `application/json` | `` { message: `The Lightsaber with the ID ${filterID} is not found!` } `` |
+> | `500`     | `application/json` | `{ message: error.message }`                                              |
 
 ##### Example
 
@@ -334,11 +334,11 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                               |
-> | --------- | ------------------ | ------------------------------------------------------ |
-> | `205`     | `application/json` | `The ${newLightSaber.name} LightSaber has been added!` |
-> | `422`     | `application/json` | `{ msg: error.message.split(':')[2] }`                 |
-> | `500`     | `application/json` | `{ message: error.message }`                           |
+> | http code | content-type       | response                                                                  |
+> | --------- | ------------------ | ------------------------------------------------------------------------- |
+> | `205`     | `application/json` | `` { message: `The ${newLightSaber.name} LightSaber has been added!` } `` |
+> | `422`     | `application/json` | `{ message: error.message.split(':')[2] }`                                |
+> | `500`     | `application/json` | `{ message: error.message }`                                              |
 
 ##### Example
 
@@ -363,12 +363,12 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                        |
-> | --------- | ------------------ | ----------------------------------------------- |
-> | `200`     | `application/json` | `The ${saberNameQuery} Saber has been updated!` |
-> | `400`     | `application/json` | `No content was provided!`                      |
-> | `422`     | `application/json` | `{ msg: error.message.split(':')[2] }`          |
-> | `500`     | `application/json` | `{ message: error.message }`                    |
+> | http code | content-type       | response                                                           |
+> | --------- | ------------------ | ------------------------------------------------------------------ |
+> | `200`     | `application/json` | `` { message: `The ${saberNameQuery} Saber has been updated!` } `` |
+> | `400`     | `application/json` | `` { message: `No content was provided!` } ``                      |
+> | `422`     | `application/json` | `{ message: error.message.split(':')[2] }`                         |
+> | `500`     | `application/json` | `{ message: error.message }`                                       |
 
 ##### Example
 
@@ -393,11 +393,11 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                        |
-> | --------- | ------------------ | ----------------------------------------------- |
-> | `200`     | `application/json` | `The ${saberNameQuery} Saber has been deleted!` |
-> | `404`     | `application/json` | `The ${saberNameQuery} Saber is not found!`     |
-> | `500`     | `application/json` | `{ message: error.message }`                    |
+> | http code | content-type       | response                                                           |
+> | --------- | ------------------ | ------------------------------------------------------------------ |
+> | `200`     | `application/json` | `` { message: `The ${saberNameQuery} Saber has been deleted!` } `` |
+> | `404`     | `application/json` | `` { message: `The ${saberNameQuery} Saber is not found!` } ``     |
+> | `500`     | `application/json` | `{ message: error.message }`                                       |
 
 ##### Example
 
@@ -419,11 +419,11 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                               |
-> | --------- | ------------------ | -------------------------------------- |
-> | `201`     | `application/json` | `The LightSabers has been added!`      |
-> | `422`     | `application/json` | `{ msg: error.message.split(':')[2] }` |
-> | `500`     | `application/json` | `{ message: error.message }`           |
+> | http code | content-type       | response                                             |
+> | --------- | ------------------ | ---------------------------------------------------- |
+> | `201`     | `application/json` | `` { message: `The LightSabers has been added!` } `` |
+> | `422`     | `application/json` | `{ message: error.message.split(':')[2] }`           |
+> | `500`     | `application/json` | `{ message: error.message }`                         |
 
 ##### Example
 
@@ -447,11 +447,11 @@ Once you give the following command, you will be asked some questions answer as 
 
 ##### Responses
 
-> | http code | content-type       | response                                               |
-> | --------- | ------------------ | ------------------------------------------------------ |
-> | `205`     | `application/json` | `The ${newLightSaber.name} LightSaber has been added!` |
-> | `422`     | `application/json` | `{ msg: error.message.split(':')[2] }`                 |
-> | `500`     | `application/json` | `{ message: error.message }`                           |
+> | http code | content-type       | response                                                                  |
+> | --------- | ------------------ | ------------------------------------------------------------------------- |
+> | `205`     | `application/json` | `` { message: `The ${newLightSaber.name} LightSaber has been added!` } `` |
+> | `422`     | `application/json` | `{ message: error.message.split(':')[2] }`                                |
+> | `500`     | `application/json` | `{ message: error.message }`                                              |
 
 ##### Example
 
