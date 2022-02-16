@@ -20,9 +20,7 @@ const getAllCrystals = async (req, res) => {
     };
     res.status(200).json({ message: response });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "app could not retrieve data from database!" });
+    res.status(500).json({ message: error.message });
   }
 };
 const createCrystal = async (req, res) => {
@@ -107,9 +105,7 @@ const getAllOrders = async (req, res) => {
     };
     res.status(200).json({ message: response });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "app could not retrieve data from database!" });
+    res.status(500).json({ message: error.message });
   }
 };
 

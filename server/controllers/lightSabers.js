@@ -18,9 +18,7 @@ const getAllSaber = async (req, res) => {
     };
     res.status(200).json({ message: response });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "app could not retrieve data from database!" });
+    res.status(500).json({ message: error.message });
   }
 };
 const getSaber = async (req, res) => {
@@ -148,7 +146,9 @@ const deleteSaber = async (req, res) => {
   try {
     const saber = await LightSabers.deleteOne({ name: saberNameQuery });
     if (saber.deletedCount !== 0) {
-      res.status(200).json(`The ${saberNameQuery} Saber has been deleted!`);
+      res
+        .status(200)
+        .json({ message: `The ${saberNameQuery} Saber has been deleted!` });
     } else {
       res
         .status(404)

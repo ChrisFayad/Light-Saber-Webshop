@@ -13,10 +13,4 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/Jedisabershop", cors(), lightSabersRoutes);
 app.use("/JediMaster", cors(), jediMasterRoutes);
 
-// app.use(
-//   "/Jedisabershop",
-//   cors({ origin: "https://localhost:3000", "https://localhost:7000" }),
-//   lightSabersRoutes
-// );
-
 module.exports = app;

@@ -7,7 +7,7 @@ const generatePrice = async (
   Saber_Quantity,
   orderLightSaber
 ) => {
-  let lightSaber = await LightSabers.findOne({
+  const lightSaber = await LightSabers.findOne({
     name: lightSaberName,
   });
   const crystal = await Crystal.findOne({
