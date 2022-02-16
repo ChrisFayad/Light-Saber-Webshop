@@ -9,8 +9,9 @@ const app = express();
 
 app.use(express.json());
 app.use(xmlparser());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
-app.use("/Jedisabershop", cors(), lightSabersRoutes);
-app.use("/JediMaster", cors(), jediMasterRoutes);
+app.use("/Jedisabershop", lightSabersRoutes);
+app.use("/JediMaster", jediMasterRoutes);
 
 module.exports = app;
