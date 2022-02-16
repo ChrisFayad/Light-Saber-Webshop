@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import MainGif from "./routes/MainGif";
-import JediMaster from "./routes/JediMaster";
-import CreateLightSaber from "./routes/CreateLightSaber";
-import DisplaySabers from "./routes/DisplaySabers";
-import DisplayOrders from "./routes/DisplayOrders";
-import Padawan from "./routes/Padawan";
-import SaberShopping from "./routes/SaberShopping";
+import MainGif from "./pages/MainGif";
+import JediMaster from "./pages/JediMaster";
+import CreateLightSaber from "./pages/CreateLightSaber";
+import DisplaySabers from "./pages/DisplaySabers";
+import DisplayOrders from "./pages/DisplayOrders";
+import Padawan from "./pages/Padawan";
+import SaberShopping from "./pages/SaberShopping";
 
 function App() {
   return (
